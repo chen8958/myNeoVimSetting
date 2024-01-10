@@ -17,4 +17,19 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use {
+        'akinsho/bufferline.nvim', 
+        tag = "*", 
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
+
+    -- use { 'mg979/vim-visual-multi', branch = 'master' }
+    use {'terryma/vim-multiple-cursors', branch = 'master'}
+    
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+
+
   end)

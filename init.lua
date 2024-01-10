@@ -24,3 +24,7 @@ vim.opt.termguicolors = true
 require("plugin-config.nvim-tree")
 
 require("plugin-config.telescope")
+
+require("plugin-config.bufferline")
+
+require("plugin-config.nvim-treesitter")

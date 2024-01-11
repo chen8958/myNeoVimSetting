@@ -28,3 +28,5 @@ require("plugin-config.telescope")
 require("plugin-config.bufferline")
 
 require("plugin-config.nvim-treesitter")
+
+require("lsp.setup")

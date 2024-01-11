@@ -3,6 +3,8 @@ if not status then
   vim.notify("没有找到 nvim-treesitter")
   return
 end
+-- for prevent default parser and tree sitter parser conflict each other
+-- set runtimepath-=C:\Program Files\Neovim\lib\nvim\parser
 
 -- must use clang in windows environment for compiling its parsor
 require 'nvim-treesitter.install'.compilers = { "clang" }

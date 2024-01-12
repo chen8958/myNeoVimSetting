@@ -15,7 +15,7 @@ function M.setup()
   dap.configurations.python = {
     -- launch exe
     {
-      name = "Launch file(pipenv)",
+      name = "Launch file",
       type = "python",
       request = "launch",
       program = "${file}",
@@ -26,6 +26,7 @@ function M.setup()
       end;
       cwd = '${workspaceFolder}',
       stopOnEntry = true,
+      console = "integratedTerminal",
       setupCommands = {
         {
           description = 'enable pretty printing',
@@ -34,6 +35,35 @@ function M.setup()
         },
       },
     },
+
+    {
+        name = "Launch file(pipenv)",
+        type = "python",
+        request = "launch",
+        program = "${file}",
+        pythonPath = function()
+          -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            -- command = '${workspaceFolder}\\pipenv --venv'
+            command = 'pipenv --venv'
+            f = assert(io.popen(command, 'r'))
+            s = assert(f:read('*line'))
+        --   result = os.execute([command])
+        --   print("this is a bug")
+        --   print(result)
+            return s .. '\\Scripts\\python'
+        --   return 'python'
+        end;
+        cwd = '${workspaceFolder}',
+        stopOnEntry = true,
+        console = "integratedTerminal",
+        setupCommands = {
+          {
+            description = 'enable pretty printing',
+            text = '-enable-pretty-printing',
+            ignoreFailures = false
+          },
+        },
+      },
   }
 
 

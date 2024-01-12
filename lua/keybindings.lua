@@ -45,7 +45,9 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 map("n", ".", "*", opt)
 map("n", ",", "#", opt)
 
--- todo previous cursor shift + <>?
+-- todo previous cursor Ctrl + <>
+map("n", "<A-Left>", "<C-o>",opt)
+map("n", "<A-Right>", "<C-i>",opt)
 
 -- 上下滚动浏览
 map("n", "<C-j>", "5j", opt)
@@ -95,10 +97,10 @@ map("n", "<A-j>", "<C-w>j", opt)
 map("n", "<A-k>", "<C-w>k", opt)
 map("n", "<A-l>", "<C-w>l", opt)
 -- alt + updown  窗口之间跳转
-map("n", "<A-Left>", "<C-w>h", opt)
-map("n", "<A-Down>", "<C-w>j", opt)
-map("n", "<A-Up>", "<C-w>k", opt)
-map("n", "<A-Right>", "<C-w>l", opt)
+-- map("n", "<A-Left>", "<C-w>h", opt)
+-- map("n", "<A-Down>", "<C-w>j", opt)
+-- map("n", "<A-Up>", "<C-w>k", opt)
+-- map("n", "<A-Right>", "<C-w>l", opt)
 -- <leader> + hjkl 窗口之间跳转
 map("n", "<leader>h", "<C-w>h", opt)
 map("n", "<leader>j", "<C-w>j", opt)

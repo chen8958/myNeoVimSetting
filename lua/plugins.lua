@@ -52,5 +52,14 @@ return require('packer').startup(function()
     use {'rafamadriz/friendly-snippets'}
     -- lspkind
     use {'onsails/lspkind-nvim'}
+    
 
+    -- comment plugin
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+    use {'lewis6991/gitsigns.nvim'}
   end)

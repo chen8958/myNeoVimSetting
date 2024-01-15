@@ -112,3 +112,8 @@ cmp.setup.cmdline(':', {
       { name = 'cmdline' }
     })
 })
+
+
+require("plugin-config.comment")
+
+require("plugin-config.gitsigns")

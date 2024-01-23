@@ -5,6 +5,7 @@ if not status then
   return
 end
 
+vim.g.loaded_treesitter = 1
 require("nvim-tree").setup()
 
 

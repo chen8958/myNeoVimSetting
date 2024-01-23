@@ -117,3 +117,11 @@ cmp.setup.cmdline(':', {
 require("plugin-config.comment")
 
 require("plugin-config.gitsigns")
+
+require("plugin-config.dropbar")
+
+require('venv-selector').setup {
+  --- other configuration
+}
+
+

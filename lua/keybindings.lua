@@ -24,6 +24,9 @@ local map = vim.api.nvim_set_keymap
 --
 map("n","V","<C-v>", opt)
 
+-- copy
+map("v","<C-c>",'"+y',opt)
+
 -- $跳到行尾不带空格 (交换$ 和 g_)
 map("v", "$", "g_", opt)
 map("v", "g_", "$", opt)
@@ -189,7 +192,9 @@ map("n", "<leader>bo", ":BufferLineCloseRight<CR>:BufferLineCloseLeft<CR>", opt)
 map("n", "<leader>bp", ":BufferLinePickClose<CR>", opt)
 
 -- -- Telescope
+-- map("n", "<C-p>", ":lua require('telescope.builtin').find_files({follow = true})<CR>", opt)
 map("n", "<C-p>", ":Telescope find_files<CR>", opt)
+
 map("n", "<C-f>", ":Telescope live_grep<CR>", opt)
 -- Telescope 列表中 插入模式快捷键
 pluginKeys.telescopeList = {

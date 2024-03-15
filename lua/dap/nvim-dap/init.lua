@@ -36,3 +36,4 @@ vim.keymap.set({"i", "n", "v"}, "<F12>", "<cmd>lua require'dap'.step_over()<CR>"
 vim.keymap.set({"i", "n", "v"}, "<F9>", "<cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = false, noremap = true, buffer = bufnr})
 
 require("dap.nvim-dap.config.python").setup()
+require("dap.nvim-dap.config.lldb").setup()

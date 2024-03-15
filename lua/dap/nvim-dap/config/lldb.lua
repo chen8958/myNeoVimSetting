@@ -5,15 +5,15 @@ function M.setup()
     dap.adapters.lldb = {
         type = 'executable',
         -- command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
-        -- command = 'C:/Program Files/LLVM/bin/lldb-vscode.exe',
-        command = "lldb-dap",
+        command = 'C:/Program Files/LLVM/bin/lldb-vscode.exe',
+        -- command = "lldb-vscode",
         name = 'lldb'
     }
 
     -- local config = {
     --     configurations = vscode.dap.configurations.load("${workspaceFolder}/.vscode/launch.json")
     --   }
-    dap.configurations.cpp = config
+    -- dap.configurations.cpp = config
     dap.configurations.cpp = {
         {
           name = 'Launch',
@@ -24,6 +24,7 @@ function M.setup()
           end,
           cwd = '${workspaceFolder}',
           stopOnEntry = false,
+          MIMode = 'lldb'
           args = {},
       
           -- 💀
@@ -38,7 +39,15 @@ function M.setup()
           -- But you should be aware of the implications:
           -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
           -- runInTerminal = false,
+          env = function()
+            local variables = {}
+            for k, v in pairs(vim.fn.environ()) do
+              table.insert(variables, string.format("%s=%s", k, v))
+            end
+            return variables
+          end,
         },
+        
       }
     dap.configurations.c = dap.configurations.cpp
 
